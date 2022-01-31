@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap");
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+
+html,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+ul {
+	list-style: none;
+}
+button,
+input,
+select {
+	margin: 0;
+}
+html {
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+img,
+video {
+	height: auto;
+	max-width: 100%;
+}
+iframe {
+	border: 0;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+td,
+th {
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+button {
+	cursor: pointer;
+}
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+
+body {
+	max-width: 1440px;
+	padding: 40px 45px;
+	font-family: "Lato" !important;
+}
+
+input,
+button,
+span {
+	border: none !important;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+/* header */
+header {
+	color: #d04f4f;
+	text-align: center;
+}
+
+h1 {
+	font-family: "DM Sans" !important;
+}
+
+header input {
+	height: 65px;
+	border-radius: 5px;
+}
+
+header form {
+	margin-top: 40px;
+}
+
+header form input {
+	background: #e7e7e7 !important;
+}
+
+header form input:placeholder-shown,
+header form span {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: #e7e7e7 !important;
+	opacity: 0.7;
+}
+
+/* main */
+/* tag */
+.tags {
+	padding-left: 0;
+	font-size: 14px;
+	font-weight: 700;
+	color: white;
+	text-transform: capitalize;
+}
+
+.tags li {
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 5px 15px;
+	border-radius: 5px;
+}
+
+.tags.ingredients li {
+	background-color: #3282f7;
+}
+.tags.appliance li {
+	background-color: #68d9a4;
+}
+.tags.ustensils li {
+	background-color: #ed6454;
+}
+
+.fa-times-circle {
+	color: white;
+}
+
+button.close {
+	background-color: transparent;
+	padding-right: 0;
+}
+
+/* dropdown */
+
+.accordion {
+	min-width: 200px;
+	margin-bottom: 20px;
+	max-width: 600px !important;
+}
+
+.accordion li {
+	padding-right: 35px;
+	padding-bottom: 5px;
+	text-transform: capitalize;
+}
+
+.accordion-body ul {
+	max-height: 400px;
+	overflow-x: auto;
+}
+
+.accordion input::placeholder {
+	color: white !important;
+	opacity: 1;
+}
+
+.accordion input.focus::placeholder {
+	opacity: 0.5;
+}
+
+main input,
+.accordion-body li {
+	color: white !important;
+}
+.accordion-body li {
+	cursor: pointer;
+}
+#accordionOne :is(.accordion-item, input, .accordion-body) {
+	background-color: #3282f7 !important;
+}
+
+#accordionTwo :is(.accordion-item, input, .accordion-body) {
+	background-color: #68d9a4 !important;
+}
+#accordionThree :is(.accordion-item, input, .accordion-body) {
+	background-color: #ed6454 !important;
+}
+
+.accordion-button::after {
+	background-image: url(./assets/row.png) !important;
+	width: 1.7rem !important;
+	height: 2rem !important;
+	background-size: 2.25rem !important;
+}
+
+.accordion-button.collapsed,
+.accordion-button:not(.collapsed),
+main .input-group-text {
+	background-color: transparent !important;
+}
+
+/* recipes */
+.recipes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px;
+	justify-content: space-around;
+	margin-top: 10rem;
+}
+
+.card {
+	border: none !important;
+}
+
+.card-img-top {
+	width: 100%;
+	height: 180px;
+	background-color: #c7bebe;
+	border-top-left-radius: 5px !important;
+	border-top-right-radius: 5px !important;
+}
+.card-body {
+	background-color: #e7e7e7;
+	border-bottom-left-radius: 5px !important;
+	border-bottom-right-radius: 5px !important;
+}
+
+.title {
+	font-size: 18px;
+}
+.time {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.instruction {
+	font-family: "Roboto";
+	font-size: 12px;
+	max-height: 60px;
+}
+
+.instruction p {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 6;
+	-webkit-box-orient: vertical;
+}
+
+.ingredientsRecipe {
+	font-size: 12px;
+}
+
+.ingredientsRecipe li {
+	margin-bottom: 2px;
+}
+
+/* error message */
+.msg-erreur {
+	font-size: 2.5rem;
+	padding: 80px 20px;
+	text-align: center;
+	color: #837c7c;
+	background-color: #e7e7e7;
+	border-radius: 10px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+@media screen and (min-width: 1200px) {
+	.dropdowns {
+		position: absolute;
+		z-index: 1;
+	}
+}
+
+@media screen and (max-width: 1199px) {
+	.recipes {
+		margin-top: 5rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.msg-erreur {
+		font-size: 1.5rem;
+		padding: 50px 20px;
+	}
+}
