@@ -3,23 +3,58 @@ import { displayRecipes } from "./displayRecipes.js";
 // filter the recipes according to the search in the main search field
 function filterBySearch(recipes, inputValue) {
 	let filterBySearch = [];
-	if (inputValue.length >= 3) {
-		filterBySearch = recipes.filter((recipe) => {
-			if (
-				inputValue
-					.split(" ")
-					.every(
-						(value) =>
-							recipe.name.toLowerCase().includes(value) ||
-							recipe.description.toLowerCase().includes(value) ||
-							recipe.ingredients.some((ingredient) =>
-								ingredient.ingredient.toLowerCase().includes(value),
-							),
-					)
-			) {
-				return recipe;
+
+	function valueInclude(property, value) {
+		let propertyLength = property.length;
+		let valueLength = value.length;
+
+		if (property === value) return true;
+		if (propertyLength < valueLength) return;
+
+		if (value[0] === undefined) {
+			return true;
+		}
+
+		let i = 0;
+		let j = 1;
+		next_char: while (i < propertyLength) {
+			if (value[0] == property[i]) {
+				while (j < valueLength) {
+					if (value[j] !== property[i + j]) {
+						i++;
+						continue next_char;
+					}
+					j++;
+				}
+				return true;
 			}
-		});
+			i++;
+		}
+	}
+
+	function valueInIngredients(ingredients, value) {
+		for (let k = 0; k < ingredients.length; k++) {
+			if (valueInclude(ingredients[k].ingredient.toLowerCase(), value)) return true;
+		}
+	}
+
+	if (inputValue.length >= 3) {
+		let value = inputValue.split(" ");
+		for (let i = 0; i < recipes.length; i++) {
+			let isValid = true;
+			for (let j = 0; j < value.length; j++) {
+				if (
+					!(
+						valueInclude(recipes[i].name.toLowerCase(), value[j]) ||
+						valueInclude(recipes[i].description.toLowerCase(), value[j]) ||
+						valueInIngredients(recipes[i].ingredients, value[j])
+					)
+				) {
+					isValid = false;
+				}
+			}
+			if (isValid === true) filterBySearch.push(recipes[i]);
+		}
 	} else {
 		filterBySearch = recipes;
 	}
