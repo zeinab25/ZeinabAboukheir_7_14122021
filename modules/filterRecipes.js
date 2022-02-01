@@ -9,14 +9,13 @@ function filterBySearch(recipes, inputValue) {
 		let valueLength = value.length;
 
 		if (property === value) return true;
-		if (propertyLength < valueLength) return;
 
 		if (value[0] === undefined) {
 			return true;
 		}
 
 		let i = 0;
-		next_char: while (i < propertyLength) {
+		next_char: while (valueLength < propertyLength - i) {
 			if (value[0] == property[i]) {
 				let j = 1;
 				while (j < valueLength) {
