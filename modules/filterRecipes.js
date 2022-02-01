@@ -16,9 +16,9 @@ function filterBySearch(recipes, inputValue) {
 		}
 
 		let i = 0;
-		let j = 1;
 		next_char: while (i < propertyLength) {
 			if (value[0] == property[i]) {
+				let j = 1;
 				while (j < valueLength) {
 					if (value[j] !== property[i + j]) {
 						i++;
@@ -42,7 +42,8 @@ function filterBySearch(recipes, inputValue) {
 		let value = inputValue.split(" ");
 		for (let i = 0; i < recipes.length; i++) {
 			let isValid = true;
-			for (let j = 0; j < value.length; j++) {
+			let j = 0;
+			while (j < value.length) {
 				if (
 					!(
 						valueInclude(recipes[i].name.toLowerCase(), value[j]) ||
@@ -51,7 +52,9 @@ function filterBySearch(recipes, inputValue) {
 					)
 				) {
 					isValid = false;
+					break;
 				}
+				j++;
 			}
 			if (isValid === true) filterBySearch.push(recipes[i]);
 		}
