@@ -3,7 +3,7 @@ import { displayRecipes } from "./displayRecipes.js";
 // filter the recipes according to the search in the main search field
 function filterBySearch(recipes, inputValue) {
 	let filterBySearch = [];
-	if (inputValue.length >= 3) {
+	if (inputValue.trim().length >= 3) {
 		filterBySearch = recipes.filter((recipe) => {
 			if (
 				inputValue
