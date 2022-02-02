@@ -37,7 +37,7 @@ function filterBySearch(recipes, inputValue) {
 		}
 	}
 
-	if (inputValue.length >= 3) {
+	if (inputValue.trim().length >= 3) {
 		let value = inputValue.split(" ");
 		for (let i = 0; i < recipes.length; i++) {
 			let isValid = true;
