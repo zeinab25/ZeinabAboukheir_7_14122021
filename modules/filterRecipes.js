@@ -39,8 +39,7 @@ function filterBySearch(recipes, inputValue) {
 
 	if (inputValue.trim().length >= 3) {
 		let value = inputValue.split(" ");
-		for (let i = 0; i < recipes.length; i++) {
-			let isValid = true;
+		next_recipe: for (let i = 0; i < recipes.length; i++) {
 			let j = 0;
 			while (j < value.length) {
 				if (
@@ -50,12 +49,11 @@ function filterBySearch(recipes, inputValue) {
 						valueInIngredients(recipes[i].ingredients, value[j])
 					)
 				) {
-					isValid = false;
-					break;
+					continue next_recipe;
 				}
 				j++;
 			}
-			if (isValid === true) filterBySearch.push(recipes[i]);
+			filterBySearch.push(recipes[i]);
 		}
 	} else {
 		filterBySearch = recipes;
