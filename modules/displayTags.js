@@ -16,7 +16,7 @@ function displayTag(tags, recipes) {
 				!tags.some(
 					(obj) =>
 						Object.values(obj).includes(tagValue) &&
-						Object.values(obj).includes(elt.parentNode.id)
+						Object.values(obj).includes(elt.parentNode.id),
 				)
 			) {
 				tags.push({
@@ -35,7 +35,7 @@ function displayTag(tags, recipes) {
 
 				let filterRecipes = filterByTags(
 					tags,
-					filterBySearch(recipes, document.getElementById("search-field").value)
+					filterBySearch(recipes, document.getElementById("search-field").value),
 				);
 				displayRecipes(filterRecipes);
 				displayListDropdown(filterRecipes);
@@ -69,7 +69,7 @@ function removeTag(tags, recipes) {
 					});
 					let filterRecipes = filterByTags(
 						tags,
-						filterBySearch(recipes, document.getElementById("search-field").value)
+						filterBySearch(recipes, document.getElementById("search-field").value),
 					);
 					displayRecipes(filterRecipes);
 					displayListDropdown(filterRecipes);
