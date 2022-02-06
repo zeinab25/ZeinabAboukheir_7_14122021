@@ -35,7 +35,7 @@ function filterByTags(tags, recipes) {
 				(recipe.appliance.toLowerCase() == tag.value && tag.type == "appliance") ||
 				recipe.ingredients.some(
 					(ingredient) =>
-						ingredient.ingredient.toLowerCase() == tag.value &&
+						ingredient.ingredient.toLowerCase().includes(tag.value) &&
 						tag.type == "ingredients",
 				) ||
 				(recipe.ustensils.includes(tag.value) && tag.type == "ustensils"),
